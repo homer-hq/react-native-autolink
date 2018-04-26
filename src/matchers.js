@@ -11,6 +11,7 @@ import Autolinker from 'autolinker';
 // To include a new country, find it's ISO Alpha 2 code at http://www.nationsonline.org/oneworld/country_code_list.htm
 const regexByCountry = {
   US: /(\([0-9]{3}\)[\s-]|[0-9]{3}[\s-])[0-9]{3}[-\s][0-9]{4}/g, // matches (123) 123-1234, with or without the parentesis and dashes
+  SE: /(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)?(0)\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?\d{5,6})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|#)\d{3,4})?/g,
   GB: /(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)?(44)\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?\d{5,6})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|#)\d{3,4})?/g,
   FR: /(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)?(33)\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?\d{5,6})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|#)\d{3,4})?/g,
   PT: /(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)?(351)\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?\d{5,6})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|#)\d{3,4})?/g,
@@ -71,7 +72,7 @@ export default [
   // Phone override
   {
     id: 'phone',
-    regex: combinedRegex(['US', 'GB', 'FR', 'PT', 'IE', 'DE']),
+    regex: combinedRegex(['US', 'SE', 'GB', 'FR', 'PT', 'IE', 'DE']),
     Match: Autolinker.Util.extend(Autolinker.match.Match, {
       constructor(cfg) {
         Autolinker.match.Match.prototype.constructor.call(this, cfg);
