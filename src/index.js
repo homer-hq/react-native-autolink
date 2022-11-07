@@ -9,7 +9,7 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import Autolinker from 'autolinker';
-import { Alert, Linking, Platform, StyleSheet, Text } from 'react-native';
+import { Alert, Linking, Platform, StyleSheet } from 'react-native';
 import matchers from './matchers';
 
 const tagBuilder = Autolinker.prototype.getTagBuilder();
@@ -274,7 +274,7 @@ Autolink.propTypes = {
   email: PropTypes.bool,
   hashtag: PropTypes.oneOf([false, 'instagram', 'twitter']),
   latlng: PropTypes.bool,
-  linkStyle: Text.propTypes.style, // eslint-disable-line react/no-typos
+  linkStyle: PropTypes.shape({}),
   mention: PropTypes.oneOf([false, 'instagram', 'twitter']),
   numberOfLines: PropTypes.number,
   onPress: PropTypes.func,
@@ -283,7 +283,7 @@ Autolink.propTypes = {
   renderLink: PropTypes.func,
   showAlert: PropTypes.bool,
   stripPrefix: PropTypes.bool,
-  style: Text.propTypes.style, // eslint-disable-line react/no-typos
+  style: PropTypes.shape({}),
   text: PropTypes.string.isRequired,
   truncate: PropTypes.number,
   truncateChars: PropTypes.string,
