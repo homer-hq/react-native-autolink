@@ -9,7 +9,7 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import Autolinker from 'autolinker';
-import { Alert, Linking, Platform, StyleSheet } from 'react-native';
+import { Alert, Linking, Platform, StyleSheet, Text } from 'react-native';
 import matchers from './matchers';
 
 const tagBuilder = Autolinker.prototype.getTagBuilder();
